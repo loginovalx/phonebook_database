@@ -1,0 +1,27 @@
+services:
+  db:
+    container_name: pb_db
+    image: postgres:16.0
+    environment:
+      POSTGRES_PASSWORD: qwert1234
+      POSTGRES_USER: user
+      POSTGRES_DB: phonebook
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: noemail@mail.user
+      PGADMIN_DEFAULT_PASSWORD: qwert1234
+    ports:
+      - "5050:80"
+  app: 
+    build: .
+volumes:
+  db_data:
+  
+    
