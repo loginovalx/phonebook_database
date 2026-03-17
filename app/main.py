@@ -6,7 +6,7 @@ def true_id(id):
 
 def validate_name(name):
     name = name.strip()
-    return len(name) >= 2
+    return len(name) <= 20
 
 def validate_phone(phone):
     phone = phone.strip()
@@ -46,11 +46,11 @@ def main():
             nt = input("Note: ").strip()
 
             if not validate_name(f_n):
-                print("Eroor: first name must contain at least 2 characters")
+                print("Eroor: first name must contain less than 20 characters")
                 continue
 
             if not validate_name(l_n):
-                print("Error! last name must contain at least 2 characters")
+                print("Eroor: last name must contain less than 20 characters")
                 continue
 
             if not validate_phone(ph):
@@ -73,11 +73,11 @@ def main():
                 nt = input("New note: ").strip()
 
                 if not validate_name(f_n):
-                    print("Eroor: first name must contain at least 2 characters")
+                    print("Eroor: first name must containl ess than 20 characters")
                     continue
 
                 if not validate_name(l_n):
-                    print("Error! last name must contain at least 2 characters")
+                    print("Error! last name must contain less than 20 characters")
                     continue
 
                 if not validate_phone(ph):
